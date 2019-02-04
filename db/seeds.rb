@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Student.create(name: "Vanessa", email: "Vanessa.prema@flatironschool.com", github: "Vanessa@github.com", blog: "Vanessa@Medium.com")
