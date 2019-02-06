@@ -13,6 +13,8 @@ gem 'puma', '~> 3.11'
 gem 'active_model_serializers'
 # Add cors to our app
 gem 'rack-cors'
+# Add Devise to manage user roles
+gem 'devise'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production

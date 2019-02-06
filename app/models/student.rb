@@ -1,5 +1,4 @@
-class Student < ApplicationRecord
+class Student < User
   has_many :cohorts
   has_many :instructors, through: :cohorts
-  has_secure_password 
 end
