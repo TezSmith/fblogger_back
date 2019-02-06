@@ -3,11 +3,11 @@
 one:
   name: MyString
   location: MyString
-  instructor: one
-  student: one
+  instructor_id: 1
+  student_id: 1
 
 two:
   name: MyString
   location: MyString
-  instructor: two
-  student: two
+  instructor_id: 1
+  student_id: 1
