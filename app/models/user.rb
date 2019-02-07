@@ -1,17 +1,19 @@
 class User < ApplicationRecord
 
-#Complex way of stating self-joining user relationship. Did not use, because I am using Devise to   manage roles & models that don't have corresponding tables to more clearly define relationships.
+# Below is a more complex way of stating this self-joining user relationship.
+# Because I am using Devise to manage user roles/models don't have corresponding tables,
+# I defined relationships within their respective models.
 
-# cohort_instructors "names" the Cohort join table for accessing through the Instructor association
+# Line 11 Looks at the Cohort table from the "perspective" of the Instructor model & defines the student_id as the foreign key
+# Line 12 Establishes that the instructor_id matches the belongs_to id in the Cohort Model
+# Lines 13 & 14, Creates the inverse relationship from the "perspective" of the Student
+
 # has_many :cohort_instructors, foreign_key: :student_id, class_name: "Cohort"
-# source: :instructor matches with the belong_to :instructor identification in the Cohort model
 # has_many :instructors, through: :cohort_instructors, source: :instructor
-# cohort_students "names" the Cohort join table for accessing through the Student association
 # has_many :cohort_students, foreign_key: :instructor_id, class_name: "Cohort"
-# source: :student matches with the belong_to :student identification in the Cohort model
 # has_many :students, through: :cohort_students, source: :student
 
-  # Include default devise modules. Others available are:
+  # Includes default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
