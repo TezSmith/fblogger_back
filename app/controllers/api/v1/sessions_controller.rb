@@ -2,6 +2,12 @@ module Api
  module V1
    class SessionsController < ApplicationController
 
-    end
+     def new
+     end
+
+     def create
+     end
+
+   end
   end
 end
