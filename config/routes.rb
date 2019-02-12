@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :skip => :all
+  root :to => "sessions#new"
+  post "/users/sign_in"    => "sessions#create"
+  delete "/users/sign_out" => "sessions#destroy"
+
   namespace :api do
    namespace :v1 do
       resources :students, only: [:index, :show]
-      resources :cohorts
-      # root "home#index"
+      resources :instructors, only: [:index, :show]
+      resources :cohorts, only: [:index, :show]
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
