@@ -10,7 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Installs Serializers
-# gem 'active_model_serializers'
+gem 'active_model_serializers'
 # Add cors to our app
 gem 'rack-cors'
 # Add Devise to manage user roles
