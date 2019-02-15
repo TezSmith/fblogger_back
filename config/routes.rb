@@ -14,4 +14,5 @@ resources :tokens, only: [:create]
 
     end
   end
+
 end
