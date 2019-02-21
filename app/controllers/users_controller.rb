@@ -7,9 +7,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-      if @user.valid
+      if @user.valid?
          @user.save
-         json: {
+         render json: {
            jwt: encode_token({id: @user.id, first_name: @user.first_name })
          }
       end
