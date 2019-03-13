@@ -5,6 +5,12 @@ class UsersController < ApplicationController
    render json: @users
   end
 
+  def github
+   code = user_params[:code]
+   byebug
+
+  end
+
   def create
     @user = User.new(user_params)
       if @user.valid?
@@ -24,7 +30,7 @@ class UsersController < ApplicationController
   def encode_token(payload = {})
     exp = 24.hours.from_now.to_i
     payload[:exp] = exp
-    JWT.encode(payload, Rails.application.credentials.secret_key_base.to_s)
+    JWT.encode(payload, ENV['SECRET'])
   end
 
 end

@@ -22,6 +22,8 @@ gem 'rack-cors'
 gem 'bcrypt', '~> 3.1.7'
 # Add JWT to Backend
 gem 'jwt'
+#Adds Rest Client to make API requests
+gem 'rest-client'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
