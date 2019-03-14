@@ -1,3 +1,8 @@
+require 'rest_client'
+require 'json'
+CLIENT_ID = ENV['GITHUB_CLIENT_ID']
+CLIENT_SECRET = ENV['GITHUB_CLIENT_SECRET']
+
 class UsersController < ApplicationController
 
   def index
@@ -6,8 +11,16 @@ class UsersController < ApplicationController
   end
 
   def github
-   code = user_params[:code]
-   byebug
+    code = params['code']
+
+   # ... and POST it back to GitHub
+   result = RestClient.post('https://github.com/login/oauth/access_token',
+                           {:client_id => CLIENT_ID,
+                            :client_secret => CLIENT_SECRET,
+                            :code => code},
+                            :accept => :json)
+   access_token = JSON.parse(result)['access_token']
+   render access_token
 
   end
 

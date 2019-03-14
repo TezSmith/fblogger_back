@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+#adds environment files to Rails
+gem 'dotenv-rails', groups: [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use postgresql as the database for Active Record
@@ -24,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 #Adds Rest Client to make API requests
 gem 'rest-client'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

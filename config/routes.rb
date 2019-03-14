@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-get '/auth/github/callback', to: 'users#create'
+get '/auth/github/callback', to: 'users#github'
 
 resources :users
 resources :tokens, only: [:create]
