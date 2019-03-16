@@ -12,18 +12,21 @@ class UsersController < ApplicationController
 
   def github
     code = request.headers["code"]
-    byebug
    # ... and POST it back to GitHub
+   byebug
    result = RestClient.post('https://github.com/login/oauth/access_token',
                            {:client_id => CLIENT_ID,
                             :client_secret => CLIENT_SECRET,
                             :code => code},
                             :accept => :json)
-   # access_token = JSON.parse(result)['access_token']
-   render json: result
+
+   access_token = JSON.parse(result)['access_token']
+   url = "https://api.github.com/user?access_token=#{access_token}"
+   person = RestClient.get(url)
+
+   render json: person
 
   end
-
 
 
   def create
