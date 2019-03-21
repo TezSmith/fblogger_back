@@ -23,11 +23,11 @@ class UsersController < ApplicationController
 
    person = RestClient.get(url)
    render json: person
-
   end
 
 
   def create
+    # byebug
     @user = User.new(user_params)
       if @user.valid?
          @user.save
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-   params.permit(:first_name, :last_name, :password, :email)
+   params.permit(:first_name, :last_name, :password, :email, :type)
   end
 
   def encode_token(payload = {})
